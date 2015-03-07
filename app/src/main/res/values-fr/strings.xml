@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DV Form Photo</string>
+    <string name="button_take_picture">prendre une photo</string>
+    <string name="dont_show_this_again">Ne plus afficher ce message</string>
+    <string name="landscape_instruction">Si vous prenez des photos en mode Paysage mettre la tête au milieu horizontalement comme indiqué dans la figure ci-dessus</string>
+    <string name="portrait_instruction">Si vous prenez des photos en mode portrait mettre la tête au milieu verticalement, comme représenté dans la figure ci-dessus</string>
+    <string name="action_settings">paramètres</string>
+</resources>

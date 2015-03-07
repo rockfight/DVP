@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">DV Form Photo</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings for Layout views -->
+    <string name="button_take_picture">Take Picture</string>
+    <string name="dont_show_this_again">Dont show this again</string>
+    <string name="button_take_another_picture">Take another Picture</string>
+    <string name="button_exit">Exit!</string>
+    <string name="button_dont_share">I dont want to help, Exit!</string>
+
+    <!-- Strings for Instructions -->
+    <string name="portrait_instruction">If you are taking picture in portrait mode put the head in the middle vertically as shown in the above figure</string>
+    <string name="landscape_instruction">If you are taking picture in Landscape mode put the head in the middle horizontally as shown in the above figure</string>
+    <string name="title_activity_another_photo">AnotherPhotoActivity</string>
+    <string name="title_activity_share">ShareActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
