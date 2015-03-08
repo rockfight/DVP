@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 
+
+
 public class AnotherPhotoActivity extends ActionBarActivity {
 
     @Override

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">DV Form Photo</string>
+    <string name="app_name" translatable="false">DV Photo</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Strings for facebook integration -->
+    <string name="facebook_app_id">1581254662113828</string>
 
     <!-- Strings for Layout views -->
     <string name="button_take_picture">Take Picture</string>
@@ -10,6 +13,7 @@
     <string name="button_take_another_picture">Take another Picture</string>
     <string name="button_exit">Exit!</string>
     <string name="button_dont_share">I dont want to help, Exit!</string>
+    <string name="button_share_facebook">Share us on Facebook</string>
 
     <!-- Strings for Instructions -->
     <string name="portrait_instruction">If you are taking picture in portrait mode put the head in the middle vertically as shown in the above figure</string>

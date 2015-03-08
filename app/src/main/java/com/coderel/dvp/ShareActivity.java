@@ -1,19 +1,23 @@
 package com.coderel.dvp;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+public class ShareActivity extends ActionBarActivity implements FacebookLikeFragment.OnFacebookLikeListener,FacebookShareFragment.OnFacebookShareListener {
 
-public class ShareActivity extends ActionBarActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
+
+
 
         //This is a test for social branch second
     }
@@ -48,5 +52,15 @@ public class ShareActivity extends ActionBarActivity {
         intent.putExtra("Exit me", true);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onFacebookLikeInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onFacebookShareInteraction(Uri uri) {
+
     }
 }
