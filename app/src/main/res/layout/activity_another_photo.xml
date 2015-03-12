@@ -19,23 +19,27 @@
         android:layout_gravity="center" />
 
 </FrameLayout>
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:id="@+id/button_take_another_photo"
-            android:layout_gravity="right|bottom" />
+<FrameLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Exit"
-            android:id="@+id/button_exit_application"
-            android:layout_gravity="left|bottom" />
-    </FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_action_photo"
+        android:text="Next"
+        android:id="@+id/button_take_another_photo"
+        android:layout_gravity="right|bottom" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_action_done"
+        android:text="Done"
+        android:id="@+id/button_exit_application"
+        android:layout_gravity="left|bottom" />
+</FrameLayout>
+
 </LinearLayout>

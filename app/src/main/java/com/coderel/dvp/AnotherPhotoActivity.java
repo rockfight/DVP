@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,10 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 
 public class AnotherPhotoActivity extends ActionBarActivity {
+
+    private InterstitialAd interstitial; //for interstitial Ad
+    private AdRequest.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +33,35 @@ public class AnotherPhotoActivity extends ActionBarActivity {
         Button takeAnotherPhoto = (Button) findViewById(R.id.button_take_another_photo);
         Button exitApplication = (Button) findViewById(R.id.button_exit_application);
 
-        takeAnotherPhoto.setOnClickListener(new View.OnClickListener(){
+        // Create the interstitial.
+        interstitial = new InterstitialAd(this);
+        interstitial.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
+
+
+        // Create ad request.
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("B44E4973A97F1709E1E53CAC79CD5CE4").build();
+
+        // Set an AdListener.
+        interstitial.setAdListener(new AdListener() {
+
             @Override
-            public void onClick(View view) {
+            public void onAdClosed() {
+                // Proceed to the next level.
                 Intent nextPhotoIntent = new Intent(getApplicationContext(),MainActivity.class);
                 nextPhotoIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(nextPhotoIntent);
+            }
+        });
+        // Begin loading your interstitial.
+        interstitial.loadAd(adRequest);
+
+        takeAnotherPhoto.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                displayInterstitial();
+                /*Intent nextPhotoIntent = new Intent(getApplicationContext(),MainActivity.class);
+                nextPhotoIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(nextPhotoIntent);*/
 
             }
         });
@@ -96,5 +125,14 @@ public class AnotherPhotoActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Invoke displayInterstitial() when you are ready to display an interstitial.
+    public void displayInterstitial() {
+        if (interstitial.isLoaded()) {
+            Log.v("interstitial ad check", "LOADED");
+            interstitial.show();
+
+        }
     }
 }

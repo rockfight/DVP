@@ -1,7 +1,6 @@
 package com.coderel.dvp;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -10,7 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.io.File;
 /*
@@ -29,6 +30,7 @@ public class MainActivity extends ActionBarActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +43,16 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-           setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
-            Button button = (Button) findViewById(R.id.button_take_picture);
+
+
+
+
+        Button button = (Button) findViewById(R.id.button_take_picture);
 
 
             button.setOnClickListener(new View.OnClickListener() {
@@ -95,25 +104,6 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    public void onCheckboxClick(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-        if(checked){
-            SharedPreferences instructionPreference = getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor editor = instructionPreference.edit();
-            editor.putBoolean(PREFS_NAME,true);
-            editor.commit();
-        } else {
-            SharedPreferences instructionPreference = getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor editor = instructionPreference.edit();
-            editor.putBoolean(PREFS_NAME,false);
-            editor.commit();
-        }
-
-    }
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -143,6 +133,8 @@ public class MainActivity extends ActionBarActivity {
     private Uri getOutputMediaFileUri() {
         return Uri.fromFile(PhotoManager.getOutputMediaFile(getApplicationContext(), true));
     }
+
+
 
 
 
